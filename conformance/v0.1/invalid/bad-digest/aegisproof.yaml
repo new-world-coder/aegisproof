@@ -1,0 +1,9 @@
+specVersion: "0.1"
+system: { name: bad-digest, version: "1" }
+producer: { name: conformance }
+createdAt: "2026-09-16T12:00:00Z"
+evidence:
+  - id: a
+    type: other
+    locator: evidence/a.txt
+    digest: "sha256:0000000000000000000000000000000000000000000000000000000000000000"

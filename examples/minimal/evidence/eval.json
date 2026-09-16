@@ -1,0 +1,6 @@
+{
+  "suite": "pass",
+  "cases": 12,
+  "accuracy": 0.91,
+  "notes": "Synthetic evaluation results for AegisProof examples — not a real model eval."
+}

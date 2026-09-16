@@ -1,0 +1,4 @@
+{
+  "retrieval": { "top_k": 5, "index": "claims-v1" },
+  "eval": { "faithfulness": 0.88, "latency_p95_ms": 420 }
+}

@@ -1,0 +1,15 @@
+specVersion: "0.1"
+system:
+  name: example-agent
+  version: "0.2.0"
+producer:
+  name: aegisproof-examples
+  version: "0.1.0"
+createdAt: "2026-09-16T12:00:00Z"
+description: Synthetic agent package with a runtime receipt artefact.
+evidence:
+  - id: runtime-receipt
+    type: runtime-receipt
+    locator: evidence/runtime-receipt.json
+    digest: "sha256:873af700d016b4d0a47edd7bf59fb063ba257e5a6767f60f4491f2b3ac26a87b"
+    mediaType: application/json

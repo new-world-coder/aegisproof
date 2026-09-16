@@ -1,0 +1,5 @@
+{
+  "tools": ["search", "escalate"],
+  "human_gate": true,
+  "notes": "Synthetic agent runtime receipt — not production telemetry."
+}

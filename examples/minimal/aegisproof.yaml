@@ -1,0 +1,27 @@
+specVersion: "0.1"
+system:
+  name: minimal-assistant
+  version: "0.1.0"
+  id: example.minimal-assistant
+producer:
+  name: aegisproof-examples
+  version: "0.1.0"
+createdAt: "2026-09-16T12:00:00Z"
+description: Minimal valid AegisProof package for Quickstart and conformance.
+evidence:
+  - id: eval-results
+    type: evaluation
+    locator: evidence/eval.json
+    digest: "sha256:829d10c86359d397ed03316ad938dc86674b256fa2abb1563e9b43278c4d81e5"
+    mediaType: application/json
+    producedAt: "2026-09-01T12:00:00Z"
+  - id: human-oversight-policy
+    type: policy
+    locator: evidence/human-oversight.md
+    digest: "sha256:b6eae129c81dd1e9daa2c7cc62d55e0acbe5b16ae35dc8fbd42550df464d230a"
+    mediaType: text/markdown
+  - id: unit-tests
+    type: test-result
+    locator: evidence/tests.json
+    digest: "sha256:5434a1b567812a49b4b04a4e0dd23bfafbada471da32e226fed4e6ecd39ca175"
+    mediaType: application/json
