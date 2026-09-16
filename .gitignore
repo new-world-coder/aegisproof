@@ -13,3 +13,7 @@
 
 # Local evidence experiments
 /.xerj-data/
+
+# Accidental local wiki clone
+.wiki-build/
+docs/_wiki_git/
