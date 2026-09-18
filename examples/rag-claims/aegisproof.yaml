@@ -1,29 +1,29 @@
 specVersion: "0.1"
 system:
-  name: claims-rag-assistant
-  version: "1.4.2"
-  id: example.claims-rag
+    name: claims-rag-assistant
+    version: 1.4.2
+    id: example.claims-rag
 producer:
-  name: aegisproof-examples
-  version: "0.1.0"
+    name: aegisproof-examples
+    version: 0.1.0
 createdAt: "2026-09-16T12:00:00Z"
 description: Synthetic RAG claims assistant package. Not a real product; integrity demo only.
 profiles:
-  - example@draft
+    - example@draft
 evidence:
-  - id: rag-eval
-    type: evaluation
-    locator: evidence/rag-eval.json
-    digest: "sha256:e99fb902dab686f6c044e4a3a0a2194517cec103a9e3411821b771666e8ea43a"
-    mediaType: application/json
-    producedAt: "2026-09-10T10:00:00Z"
-  - id: data-handling
-    type: policy
-    locator: evidence/data-handling.md
-    digest: "sha256:e5b91baf5427182a8750020e816fb9f886ff235afa0fdcbd7f5eff6938fac02e"
-    mediaType: text/markdown
-  - id: model-card
-    type: model-card
-    locator: evidence/model-card.md
-    digest: "sha256:fd2e2d8ebdac60fbccdda3ab1d83a5a10321f0f7343c9a594ad55253c20ff9eb"
-    mediaType: text/markdown
+    - id: rag-eval
+      type: evaluation
+      locator: evidence/rag-eval.json
+      digest: sha256:5ce7f7872982e4ac8ce04abf03fd0dea5bb96ae422349502dff79a8d63bba0f4
+      mediaType: application/json
+      producedAt: "2026-09-10T10:00:00Z"
+    - id: data-handling
+      type: policy
+      locator: evidence/data-handling.md
+      digest: sha256:eaa425f96a18523f1e74feb7b390b0489cb8ab7cac03406d834ec29b33312acd
+      mediaType: text/markdown
+    - id: model-card
+      type: model-card
+      locator: evidence/model-card.md
+      digest: sha256:e64b7547f4c22c720d93a9ffd8913712f4caf72de178abaec1934b1237042c48
+      mediaType: text/markdown
