@@ -8,6 +8,7 @@
 | invalid-missing | `invalid/missing-file` | INVALID / EVIDENCE_MISSING |
 | invalid-traversal | `invalid/path-traversal` | INVALID / PATH |
 | invalid-schema | `invalid/bad-spec-version` | INVALID / SCHEMA |
+| invalid-duplicate-id | `invalid/duplicate-id` | INVALID / SCHEMA |
 
 Run:
 

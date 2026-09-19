@@ -1,0 +1,13 @@
+specVersion: "0.1"
+system: { name: duplicate-id, version: "1" }
+producer: { name: conformance }
+createdAt: "2026-09-16T12:00:00Z"
+evidence:
+  - id: a
+    type: other
+    locator: evidence/a.txt
+    digest: "sha256:e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f"
+  - id: a
+    type: other
+    locator: evidence/b.txt
+    digest: "sha256:e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f"
