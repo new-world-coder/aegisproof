@@ -3,6 +3,7 @@ package verify_test
 import (
 	"os"
 	"path/filepath"
+	"strings"
 	"testing"
 	"time"
 
@@ -72,6 +73,69 @@ evidence:
 	}
 	if rep.Result != verify.ResultInvalid {
 		t.Fatalf("want INVALID got %s", rep.Result)
+	}
+}
+
+func TestDuplicateEvidenceID(t *testing.T) {
+	root := t.TempDir()
+	sum, err := writeHashed(t, root, "evidence/a.txt", "fixture\n")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "evidence", "b.txt"), []byte("fixture\n"), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	writePkg(t, root, `
+specVersion: "0.1"
+system: { name: t, version: "1" }
+producer: { name: test }
+createdAt: "2026-09-16T12:00:00Z"
+evidence:
+  - id: a
+    type: other
+    locator: evidence/a.txt
+    digest: "`+sum+`"
+  - id: a
+    type: other
+    locator: evidence/b.txt
+    digest: "`+sum+`"
+`, nil)
+	rep, err := verify.Package(root, verify.Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if rep.Result != verify.ResultInvalid {
+		t.Fatalf("want INVALID got %s errors=%v", rep.Result, rep.Errors)
+	}
+	if verify.ExitCode(rep.Result) != 1 {
+		t.Fatalf("want exit 1 got %d", verify.ExitCode(rep.Result))
+	}
+	found := false
+	for _, e := range rep.Errors {
+		if e.Code == "SCHEMA" && strings.Contains(e.Message, `duplicate evidence id "a"`) {
+			found = true
+			break
+		}
+	}
+	if !found {
+		t.Fatalf("want SCHEMA error for duplicate id, got %#v", rep.Errors)
+	}
+}
+
+func TestConformanceInvalidDuplicateID(t *testing.T) {
+	root := filepath.Join("..", "..", "conformance", "v0.1", "invalid", "duplicate-id")
+	if _, err := os.Stat(filepath.Join(root, "aegisproof.yaml")); err != nil {
+		t.Skip("conformance fixture not present:", err)
+	}
+	rep, err := verify.Package(root, verify.Options{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if rep.Result != verify.ResultInvalid {
+		t.Fatalf("want INVALID got %s errors=%v", rep.Result, rep.Errors)
+	}
+	if verify.ExitCode(rep.Result) != 1 {
+		t.Fatalf("want exit 1 got %d", verify.ExitCode(rep.Result))
 	}
 }
 
