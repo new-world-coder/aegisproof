@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, cursor/aegisproof-v0.1-spec-and-cli]
   pull_request:
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
       - name: Conformance invalid must fail
         run: |
           set +e
-          go run ./cmd/aegisproof verify ./conformance/v0.1/invalid/bad-digest
-          test $? -eq 1
-          go run ./cmd/aegisproof verify ./conformance/v0.1/invalid/path-traversal
-          test $? -eq 1
+          for case in bad-digest missing-file path-traversal bad-spec-version duplicate-id; do
+            go run ./cmd/aegisproof verify "./conformance/v0.1/invalid/$case"
+            test $? -eq 1 || exit 1
+          done
