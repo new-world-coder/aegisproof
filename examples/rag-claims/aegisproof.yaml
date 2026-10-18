@@ -25,5 +25,5 @@ evidence:
   - id: model-card
     type: model-card
     locator: evidence/model-card.md
-    digest: "sha256:fd2e2d8ebdac60fbccdda3ab1d83a5a10321f0f7343c9a594ad55253c20ff9eb"
+    digest: "sha256:5ba531aa70525057a67bed3437ed83f8c71286f88bf55a4cf3367145159e73c5"
     mediaType: text/markdown
